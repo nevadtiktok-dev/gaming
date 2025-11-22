@@ -14,27 +14,26 @@ public class Spawner : MonoBehaviour
     }
 
     private IEnumerator SpawnGhosts()
-    {
+    {   
         
+        float b1 = 2;//poczatkowy
         while (true)
-        {   float r1 = UnityEngine.Random.Range(5f, 10f);//poczatkowy
-            float b1 = 1;//poczatkowy
+        {   
             
-        if(b1==b1+3){
-            r1 = UnityEngine.Random.Range(-4f, -8f);
-            float z1 = UnityEngine.Random.Range(-209f, -197f);
+            
+        
+            
+            float z1 = UnityEngine.Random.Range(-209f, -197f);//z w jakim moze sie respic
             float x1 = UnityEngine.Random.Range(0f, 5f);
             
-            }
-        else{
-            float z1 = UnityEngine.Random.Range(-209f, -197f);
-            float x1 = UnityEngine.Random.Range(0f, 5f);
+        
             Instantiate(ghostPrefab, new Vector3(x1, transform.position.y, z1), Quaternion.Euler(-90, 0, 180));
-            yield return new WaitForSeconds(r1);
-            b1=b1+1;
-            }
-            Debug.Log(b1);
-            Debug.Log(r1);
+            yield return new WaitForSeconds(b1);
+          if(b1>0.2f){  
+          b1-=0.01f;
+          
+                    }
+          Debug.Log(b1);
         }
     }
 }

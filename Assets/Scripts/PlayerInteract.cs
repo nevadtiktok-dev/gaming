@@ -9,7 +9,7 @@ public class PlayerInteract : MonoBehaviour
 
     private Camera cam;
     [SerializeField]
-    private float distance = 3f;
+    private float distance = 6.5f;
     [SerializeField]
     private LayerMask mask;
     private PlayerUI playerUI;
