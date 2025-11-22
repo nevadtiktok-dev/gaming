@@ -11,8 +11,8 @@ public class PauseMenu : MonoBehaviour
     
     public void onclick()
     {
-        canvas.gameObject.SetActive(true);
-        PausePanel.SetActive(false);
+        canvas.gameObject.SetActive(false);
+        PausePanel.SetActive(true);
         Time.timeScale = 1f;
         audioholder.SetActive(true);
         healthbar.SetActive(true);
@@ -22,14 +22,21 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         canvas.gameObject.SetActive(true);
-        PausePanel.SetActive(false);
-        Time.timeScale = 1f;
-        audioholder.SetActive(true);
-        healthbar.SetActive(true);
-        crosshair.SetActive(true);
+        PausePanel.SetActive(true);
+        Time.timeScale = 0f;
+        audioholder.SetActive(false);
+        healthbar.SetActive(false);
+        crosshair.SetActive(false);
         
 
     }
+
+    public void onclick0()
+    {
+        Application.Quit();
+    }
+
+
 
     
 

@@ -16,6 +16,7 @@ public class MainMenuAutoBinder : MonoBehaviour
 
     void Awake()
     {
+        
         // Znajdź obiekty po nazwie w hierarchii sceny
         mainMenu = GameObject.Find(mainMenuName);
         if (mainMenu == null)
