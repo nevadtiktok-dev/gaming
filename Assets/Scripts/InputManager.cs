@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class InputManager : MonoBehaviour
 {
@@ -15,13 +16,12 @@ public class InputManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Awake()
-    {
+ {
         playerInput = new PlayerInput();
         onfoot = playerInput.OnFoot;
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
         onfoot.Jump.performed += ctx => motor.Jump();
-
         
     }
     void Start()
