@@ -30,10 +30,10 @@ public class MonsterAI : MonoBehaviour
         transform.position += normalizedDirection * moveSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         // Sprawdzamy czy obiekt, z którym weszliśmy w kolizję, ma tag "bariera"
-        if (other.CompareTag("bariera"))
+        if (other.gameObject.CompareTag("bariera"))
         {
             // Wywołujemy komendę zadawania obrażeń
             DealDamage();
