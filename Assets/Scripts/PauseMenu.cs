@@ -8,6 +8,17 @@ public class PauseMenu : MonoBehaviour
     public GameObject crosshair;
     public  GameObject canvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    public void onclick()
+    {
+        canvas.gameObject.SetActive(true);
+        PausePanel.SetActive(false);
+        Time.timeScale = 1f;
+        audioholder.SetActive(true);
+        healthbar.SetActive(true);
+        crosshair.SetActive(true);
+    }
+    
     void Start()
     {
         canvas.gameObject.SetActive(true);
@@ -20,6 +31,9 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    
+
+    
     // Update is called once per frame
     void Update()
     {

@@ -28,22 +28,24 @@ public class MonsterAI : MonoBehaviour
 
         // Przesuwamy potwora w stronę gracza z określoną prędkością
         transform.position += normalizedDirection * moveSpeed * Time.deltaTime;
+
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
         // Sprawdzamy czy obiekt, z którym weszliśmy w kolizję, ma tag "bariera"
-        if (other.gameObject.CompareTag("bariera"))
+        if (other.gameObject.CompareTag("barrier"))
         {
             // Wywołujemy komendę zadawania obrażeń
-            DealDamage();
+            DealDamage(other.gameObject.GetComponent<PlayerHealth>());
+            Destroy(this.gameObject);
         }
     }
 
-    private void DealDamage()
+    private void DealDamage(PlayerHealth health)
     {
         // Tutaj wpisz logikę zadawania obrażeń graczowi, prawdopodobnie player.DealDamage() i wtedy na graczu w skrypcie robimy ten skrypt
-        PlayerHealth playerHealth = postac.GetComponent<PlayerHealth>();
-        playerHealth.takeDamage(Random.Range(5f, 10f));
+        health.takeDamage(Random.Range(5f, 10f));
     }
 }

@@ -16,13 +16,20 @@ public class killscript : MonoBehaviour
         
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+
+        if (other.CompareTag("kill_variable"))
+        {
+            Debug.Log(other.gameObject.name + " hit");
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         
-        if (Input.GetMouseButtonDown(0) && other.CompareTag("kill_variable"))
-        {
-            Debug.Log("dziala");
-        }
+        
     }
     
 

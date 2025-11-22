@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - kill_variable
+  - barrier
   layers:
   - Default
   - TransparentFX

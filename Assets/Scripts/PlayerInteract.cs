@@ -42,6 +42,12 @@ public class PlayerInteract : MonoBehaviour
                     interactable.BaseInteract();
                 }
             }
+
+            if (hitInfo.collider.gameObject.CompareTag("kill_variable"))
+            {
+                if (Input.GetMouseButtonDown(0))
+                    Destroy(hitInfo.collider.gameObject);
+            }
         }
     }
 }
