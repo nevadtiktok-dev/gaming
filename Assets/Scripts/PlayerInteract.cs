@@ -9,17 +9,17 @@ public class PlayerInteract : MonoBehaviour
 
     private Camera cam;
     [SerializeField]
-    private float distance = 3f;
+    private float distance = 6.5f;
     [SerializeField]
     private LayerMask mask;
-    private PlayerUI playerUI;
+    
     private InputManager inputManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = GetComponent<PlayerLook>().cam;
-        playerUI = GetComponent<PlayerUI>();
+       
         inputManager = GetComponent<InputManager>();
         
     }
@@ -27,7 +27,7 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerUI.UpdateText(string.Empty);
+   
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance, Color.red);
         RaycastHit hitInfo;
@@ -36,11 +36,17 @@ public class PlayerInteract : MonoBehaviour
             if(hitInfo.collider.gameObject.GetComponent<Interactable>() != null)
             {
                 Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
-                playerUI.UpdateText(interactable.promptMessage);
+              
                 if(inputManager.onfoot.Interact.triggered)
                 {
                     interactable.BaseInteract();
                 }
+            }
+
+            if (hitInfo.collider.gameObject.CompareTag("kill_variable"))
+            {
+                if (Input.GetMouseButtonDown(0))
+                    Destroy(hitInfo.collider.gameObject);
             }
         }
     }

@@ -7,7 +7,9 @@ public class PlayerMotor : MonoBehaviour
     private bool isGrounded;
     public float speed = 5.0f;
     public float gravity = -9.8f;
-    public float jumpHeight = 3.0f;
+    public float jumpHeight = 1.5f;
+
+    public float sprintingSpeed = 8.0f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,14 @@ public class PlayerMotor : MonoBehaviour
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = sprintingSpeed;
+        }
+        else
+        {
+            speed = 5.0f;
+        }
         controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
         playerVelocity.y += gravity * Time.deltaTime;
         if (isGrounded && playerVelocity.y < 0)

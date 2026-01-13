@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - kill_variable
+  - barrier
   layers:
   - Default
   - TransparentFX
@@ -12,10 +14,10 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - 
-  - 
-  - 
-  - 
+  - Niechoczu
+  - bariera
+  - siusiok
+  - kill_variable
   - 
   - 
   - 

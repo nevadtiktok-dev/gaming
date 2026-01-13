@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class kloc : Interactable
 {
+    public GameObject siusiak;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        siusiak.SetActive(false);
     }
 
     // Update is called once per frame
@@ -16,6 +17,6 @@ public class kloc : Interactable
 
     protected override void Interact()
     {
-        Debug.Log("Interacted with "+gameObject.name);
+        siusiak.SetActive(true);
     }
 }
